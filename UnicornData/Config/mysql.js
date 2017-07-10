@@ -1,44 +1,29 @@
-// JavaScript source code
-//var express = require("express");
-//var mysql = require('mysql');
-//var app = express();
+var mysql = require('mysql');
+var CONFIG = require('./config.json');
 
-//var pool = mysql.createPool({
- //   connectionLimit: 100, //important
-   // host: 'localhost',
-   // user: 'root',
-    //password: '',
-    //database: 'address_book',
-    //debug: false
-//});
+var dbPort = CONFIG.dbPort;
+var dbHost = CONFIG.dbHost;
+var dbUser = CONFIG.dbUser;
+var dbPassword = CONFIG.dbPassword;
 
-//function handle_database(req, res) {
 
-  //  pool.getConnection(function (err, connection) {
-    //    if (err) {
-      //      res.json({ "code": 100, "status": "Error in connection database" });
-        //    return;
-        //}
+var connection = mysql.createConnection({
+    host: dbHost,
+    user: dbUser,
+    password: dbPassword,
+    port: dbPort
+});
 
-      //  console.log('connected as id ' + connection.threadId);
+connection.connect(function(err) {
+  if (err) {
+    console.error('Database connection failed: ' + err.stack);
+    return;
+  }
 
-       // connection.query("select * from user", function (err, rows) {
-         //   connection.release();
-           // if (!err) {
-             //   res.json(rows);
-            //}
-       // });
+  console.log('Connected to database.');
+});
 
-        //connection.on('error', function (err) {
-          //  res.json({ "code": 100, "status": "Error in connection database" });
-            //return;
-       // });
-   // });
-//}
+connection.end();
 
-//app.get("/", function (req, res) {
-  //  -
-    //handle_database(req, res);
-//});
 
-//app.listen(3000);
+
