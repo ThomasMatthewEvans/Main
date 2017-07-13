@@ -12,7 +12,6 @@ con.connect(function (err) {
     console.log("Connected!");
 
     con.query(`SELECT * FROM (
-
             SELECT 
             'Cars' as 'Results', Make, Model, Year, Estimate,
             (MATCH(Make) AGAINST ('Ferrari')) as relevance 
@@ -28,9 +27,11 @@ con.connect(function (err) {
             (MATCH(artist) AGAINST ('Ferrari')) as relevance 
             from mydb.paintings
 )
-            as sitewide WHERE relevance > 0;`)
-
-}); 
+            as sitewide WHERE relevance > 0`, function (err, result) {
+            if (err) throw err;
+            console.log("Return");
+        });
+});
 
 
 
