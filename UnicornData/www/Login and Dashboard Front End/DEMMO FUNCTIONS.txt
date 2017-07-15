@@ -1,0 +1,13 @@
+<html>
+<body>
+    <input type="text" id="userInput"=>give me input</input>
+    <button onclick="test()">SEARCH</button>
+    <script>
+        function test()
+        {
+            var userInput = document.getElementById("userInput").value;
+            document.write("YOUR ARTEFACT DETAILS ARE AS FOLLOWS:" userInput);
+        }
+    </script>
+</body>
+</html>

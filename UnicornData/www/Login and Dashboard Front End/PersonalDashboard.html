@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+    
+  <meta charset="UTF-8">
+  <title>Artefacts Personal Dashboard</title>
+  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+      <link rel="stylesheet" href="css/style.css">
+   
+<script>
+var User_Input = document.getElementById('AoI');
+</script>
+    
+</head>
+
+<body>
+    
+  <div class="login-wrap">
+ 
+	<div class="login-html">
+	<div class="Title">
+        <h2>Dashboard</h2>
+	</div>
+				<p> Welcome to your personal dashboard</p>
+        <h2>Classic Car</h2>
+<img src="pic_mountain.jpg" alt="Car Blurb" style="width:304px;height:228px;">
+    <label><b>Artefact of Interest:</b></label>
+    <input type="text" placeholder="Car,Painting,Jewelry...." id="AoI"=>Click button to</input>
+    <button onclick="test()">SEARCH</button>
+    <script>
+        function test()
+        {
+            var User_Input = document.getElementById("AoI").value;
+            document.write(User_Input);
+        }
+    </script>
+  </div>
+</body>
+</html>
